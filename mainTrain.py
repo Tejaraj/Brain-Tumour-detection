@@ -13,8 +13,8 @@ from keras.utils import to_categorical
 
 image_directory='datasets/'
 
-no_tumor_images=os.listdir(image_directory+ 'no/')
-yes_tumor_images=os.listdir(image_directory+ 'yes/')
+no_tumor_images=os.listdir(image_directory+ 'no1/')
+yes_tumor_images=os.listdir(image_directory+ 'yes1/')
 dataset=[]
 label=[]
 
@@ -27,7 +27,7 @@ INPUT_SIZE=64
 
 for i , image_name in enumerate(no_tumor_images):
     if(image_name.split('.')[1]=='jpg'):
-        image=cv2.imread(image_directory+'no/'+image_name)
+        image=cv2.imread(image_directory+'no1/'+image_name)
         image=Image.fromarray(image,'RGB')
         image=image.resize((INPUT_SIZE,INPUT_SIZE))
         dataset.append(np.array(image))
@@ -35,7 +35,7 @@ for i , image_name in enumerate(no_tumor_images):
 
 for i , image_name in enumerate(yes_tumor_images):
     if(image_name.split('.')[1]=='jpg'):
-        image=cv2.imread(image_directory+'yes/'+image_name)
+        image=cv2.imread(image_directory+'yes1/'+image_name)
         image=Image.fromarray(image, 'RGB')
         image=image.resize((INPUT_SIZE,INPUT_SIZE))
         dataset.append(np.array(image))
